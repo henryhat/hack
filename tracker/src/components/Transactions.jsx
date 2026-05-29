@@ -2,6 +2,15 @@ import React, { useState, useEffect } from "react";
 import logo from "../assets/logo.png";
 
 export default function iFINANCE() {
+  const formatMoney = (amount) => {
+    return amount.toLocaleString('en-US', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    });
+  };
+
+
+//export default function iFINANCE() {
   const [transactions, setTransactions] = useState(() => {
     const saved = localStorage.getItem("ifinance_transactions");
     return saved ? JSON.parse(saved) : [];
